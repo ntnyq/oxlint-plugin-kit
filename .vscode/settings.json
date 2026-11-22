@@ -1,0 +1,30 @@
+{
+  "oxc.enable": true,
+  "eslint.enable": false,
+  "prettier.enable": false,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "oxc.oxc-vscode",
+  "editor.codeActionsOnSave": {
+    "source.format.oxc": "explicit",
+    "source.fixAll.oxc": "explicit"
+  },
+  "js/ts.experimental.useTsgo": true,
+  "js/ts.tsdk.path": "node_modules/typescript",
+  "cSpell.words": [
+    "bumpp",
+    "changelogithub",
+    "codecov",
+    "esbuild",
+    "lcov",
+    "oxfmt",
+    "oxlint",
+    "pnpm",
+    "tsdown",
+    "tsgo",
+    "unrs",
+    "vite",
+    "vitepress",
+    "vitest"
+  ],
+  "cSpell.allowCompoundWords": true
+}

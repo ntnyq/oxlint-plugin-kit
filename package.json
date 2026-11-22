@@ -1,0 +1,95 @@
+{
+  "name": "oxlint-plugin-kit",
+  "version": "0.0.0",
+  "description": "TypeScript types and utilities for developing Oxlint JavaScript plugins and custom rules.",
+  "keywords": [
+    "ast",
+    "custom-rules",
+    "lint",
+    "oxc",
+    "oxlint",
+    "plugin",
+    "typescript"
+  ],
+  "homepage": "https://github.com/ntnyq/oxlint-plugin-kit#readme",
+  "bugs": {
+    "url": "https://github.com/ntnyq/oxlint-plugin-kit/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "ntnyq",
+    "email": "ntnyq13@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ntnyq/oxlint-plugin-kit.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    },
+    "./vitest-tester": {
+      "types": "./dist/vitest-tester.d.mts",
+      "default": "./dist/vitest-tester.mjs"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
+    "lint": "oxlint",
+    "prepare": "husky",
+    "prepublishOnly": "pnpm run build",
+    "release": "run-s release:check release:version",
+    "release:check": "run-s format:check lint typecheck test",
+    "release:version": "bumpp",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@oxlint/plugins": "^1.94.0"
+  },
+  "devDependencies": {
+    "@ntnyq/tsconfig": "^3.1.0",
+    "@types/node": "^26.6.6",
+    "bumpp": "^12.3.0",
+    "husky": "^9.1.7",
+    "nano-staged": "^1.0.2",
+    "npm-run-all2": "^9.1.0",
+    "oxfmt": "^0.79.0",
+    "oxlint": "^1.94.0",
+    "tsdown": "^0.23.7",
+    "typescript": "^7.1.0-beta",
+    "vitest": "^5.1.1"
+  },
+  "peerDependencies": {
+    "oxlint": "^1.94.0",
+    "vitest": "^5.1.1"
+  },
+  "peerDependenciesMeta": {
+    "oxlint": {
+      "optional": true
+    },
+    "vitest": {
+      "optional": true
+    }
+  },
+  "nano-staged": {
+    "*.{js,ts,mjs,tsx}": "oxlint --fix --no-error-on-unmatched-pattern",
+    "*": "oxfmt --no-error-on-unmatched-pattern"
+  },
+  "packageManager": "pnpm@12.21.0"
+}
