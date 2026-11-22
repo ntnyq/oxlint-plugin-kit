@@ -1,6 +1,6 @@
 {
   "name": "oxlint-plugin-kit",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "TypeScript types and utilities for developing Oxlint JavaScript plugins and custom rules.",
   "keywords": [
     "ast",
